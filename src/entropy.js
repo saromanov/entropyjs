@@ -26,3 +26,15 @@ var prob = function(items, num){
     return items.filter(x => x == num).length/items.length;
 }
 
+var counter = function(items){
+    let m = new Map();
+    items.forEach(x => {
+        if(m.get(x) == undefined) {
+            m.set(x, 1);
+        } else {
+            m.set(x, m.get(x) + 1);
+        }
+    });
+    return m;
+}
+
