@@ -2,24 +2,13 @@ export default {
     
     calc: function(items){
         let count = items.length;
-        let total = 0;
-        for(let item of items){
-            item /= count;
-            total += Math.exp(item);
+        let data = counter(items);
+        let result = 0;
+        for (let [ key, val ] of data.entries()){
+            result += (val/count) * Math.log2(val/count);
         }
-
-        return -Math.log(total/count);
+        return -result;
     },
-
-    entropy2: function(items){
-        return -items.reduce((x,y) => x + prob(items, y) * Math.log(prob(items,y)))+1;
-    },
-
-    shannon: function(items){
-        return -items.reduce((x,y) => x + (y * Math.log(y)))+1;
-    }
-
-
 }
 
 var prob = function(items, num){
@@ -37,4 +26,3 @@ var counter = function(items){
     });
     return m;
 }
-
