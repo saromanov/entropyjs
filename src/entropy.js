@@ -1,6 +1,7 @@
 export default {
     
     calc: function(items){
+        items = items.split('');
         let count = items.length;
         let data = counter(items);
         let result = 0;
