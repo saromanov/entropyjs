@@ -6,7 +6,8 @@ export default {
         let data = counter(items);
         let result = 0;
         for (let [ key, val ] of data.entries()){
-            result += (val/count) * Math.log2(val/count);
+            let probability = val/count;
+            result += probability * Math.log2(probability);
         }
         return -result;
     },
