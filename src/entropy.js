@@ -40,13 +40,15 @@ var joint_probability = function(X, Y){
     let result = 0;
     X = X.split('');
     Y = Y.split('');
+    let arr = [];
     var m = new Map();
     each(range(len), i => {
         let x = X[i];
         let y = Y[i];
-        if(m.get((x,y)) == undefined){
+        if(arr.filter(d => d[0] == x && d[1] == y).length == 0){
             let res = zip(X,Y).filter(v => v[0] == x && v[1] == y).length/len;
             m.set([x, y], res);
+            arr.push([x,y]);
         }
 
     });
