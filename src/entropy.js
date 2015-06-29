@@ -13,6 +13,16 @@ export default {
         return -result;
     },
 
+    jointShannon: function(X, Y){
+        let data1 = prepare(X);
+        let data2 = prepare(Y);
+        let result = 0;
+        for(let [key, val] of joint_probability(X,Y)){
+            result += val * Math.log(val);
+        }
+        return -result;
+    },
+
     conditional: function(X, Y){
         let data1 = prepare(X);
         let data2 = prepare(Y);
@@ -43,7 +53,6 @@ var joint_probability = function(X, Y){
     return m
 
 }
-
 var prepare = function(items){
     items = items.split('');
     return counter(items);
