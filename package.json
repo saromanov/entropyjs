@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "babel": "^4.6.0",
+    "mocha": "^2.2.5",
     "underscore": "^1.8.3"
   },
   "homepage": "https://github.com/saromanov/entropyjs#readme"
