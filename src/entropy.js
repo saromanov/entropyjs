@@ -1,5 +1,5 @@
 
-import underscore, {each, range} from 'underscore'
+import underscore, {each, range, zip} from 'underscore'
 export default {
     
     calc: function(items){
@@ -45,7 +45,7 @@ var joint_probability = function(X, Y){
         let x = X[i];
         let y = Y[i];
         if(m.get((x,y)) == undefined){
-            let res = X.filter(v => v == x && Y[i] == y).length/len;
+            let res = zip(X,Y).filter(v => v[0] == x && v[1] == y).length/len;
             m.set([x, y], res);
         }
 
