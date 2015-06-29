@@ -43,9 +43,6 @@ var joint_probability = function(X, Y){
     return m
 
 }
-var prob = function(items, num){
-    return items.filter(x => x == num).length/items.length;
-}
 
 var prepare = function(items){
     items = items.split('');
