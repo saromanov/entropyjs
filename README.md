@@ -1,4 +1,4 @@
-# entropyjs
+# entropyjs [![Build Status](https://travis-ci.org/saromanov/entropyjs.svg?branch=master)](https://travis-ci.org/saromanov/entropyjs)
 
 
 ## Usage
