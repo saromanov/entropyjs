@@ -1,7 +1,9 @@
 
 import underscore, {each, range, zip, reduce} from 'underscore'
 export default {
-    
+   
+    //Shannon Entropy
+    //H(P) = -\sum_i P(x_i) * log_2 P(x_i)
     shannon: function(items){
         let data = prepare(items);
         let result = 0;
@@ -12,7 +14,9 @@ export default {
         }
         return -result;
     },
-
+    
+    //Joint Shannon Entropy
+    //H(P,Q) = -\sum_x\sum_y P(x,y) log_2 P(x,y)
     jointShannon: function(X, Y){
         let data1 = prepare(X);
         let data2 = prepare(Y);
@@ -23,6 +27,8 @@ export default {
         return -result;
     },
 
+    //Conditional entropy
+    //H(Y|X) = \sum p(x,y)log(p(x)/p(x,y))
     conditional: function(X, Y){
         let data1 = prepare(X);
         let data2 = prepare(Y);
@@ -35,6 +41,7 @@ export default {
     },
 
     //Cross Entropy
+    //H(p,q) = H(p) + KL(p||q)
     cross: function(X, Y){
         let kl = (x, y) => {
             return reduce(range(X.length), (acc, i) => acc + x[i] * Math.log(x[i]/y[i]),0);
