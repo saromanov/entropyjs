@@ -32,10 +32,15 @@ export default {
             result += val * Math.log(probX/val);
         };
         return result;
+    },
+
+    //Cross Entropy
+    cross: function(X, Y){
+
     }
 }
 
-var joint_probability = function(X, Y){
+let joint_probability = function(X, Y){
     let len = X.length;
     let result = 0;
     X = X.split('');
@@ -55,7 +60,7 @@ var joint_probability = function(X, Y){
     return m
 
 }
-var prepare = function(items){
+let prepare = function(items){
     items = items.split('');
     let m = new Map();
     items.forEach(x => {
