@@ -2,7 +2,7 @@
 import underscore, {each, range, zip} from 'underscore'
 export default {
     
-    calc: function(items){
+    shannon: function(items){
         let data = prepare(items);
         let result = 0;
         let count = items.length;
