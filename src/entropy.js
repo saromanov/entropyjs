@@ -57,11 +57,6 @@ var joint_probability = function(X, Y){
 }
 var prepare = function(items){
     items = items.split('');
-    return counter(items);
-
-}
-
-var counter = function(items){
     let m = new Map();
     items.forEach(x => {
         if(m.get(x) == undefined) {
@@ -71,4 +66,5 @@ var counter = function(items){
         }
     });
     return m;
+
 }
