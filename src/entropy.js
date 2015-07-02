@@ -1,5 +1,5 @@
 
-import underscore, {each, range, zip} from 'underscore'
+import underscore, {each, range, zip, reduce} from 'underscore'
 export default {
     
     shannon: function(items){
@@ -36,10 +36,17 @@ export default {
 
     //Cross Entropy
     cross: function(X, Y){
-
+        let kl = (x, y) => {
+            return reduce(range(X.length), (acc, i) => acc + x[i] * Math.log(x[i]/y[i]),0);
+        }
+        return this.shannon(X.toString()) + kl(norm(X), norm(Y));
     }
 }
 
+let norm = function(X){
+    let sum = X.reduce((x,y) => x + y, 0);
+    return X.map(x => x/sum);
+}
 let joint_probability = function(X, Y){
     let len = X.length;
     let result = 0;
@@ -60,6 +67,7 @@ let joint_probability = function(X, Y){
     return m
 
 }
+
 let prepare = function(items){
     items = items.split('');
     let m = new Map();
