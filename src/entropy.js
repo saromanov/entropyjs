@@ -22,7 +22,7 @@ export default {
         let data2 = prepare(Y);
         let result = 0;
         for(let [key, val] of joint_probability(X,Y)){
-            result += val * Math.log(val);
+            result += logfunc(val, val);
         }
         return -result;
     },
@@ -35,7 +35,7 @@ export default {
         let result = 0;
         for(let [key, val] of joint_probability(X,Y)){
             let probX = data1.get(key[0]);
-            result += val * Math.log(probX/val);
+            result += logfunc(val, probX/val);
         };
         return result;
     },
@@ -48,6 +48,10 @@ export default {
         }
         return this.shannon(X.toString()) + kl(norm(X), norm(Y));
     }
+}
+
+let logfunc = function(item1, item2){
+   return item1 * Math.log(item2); 
 }
 
 let norm = function(X){
