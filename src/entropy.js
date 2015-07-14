@@ -1,5 +1,5 @@
 
-import underscore, {each, range, zip, reduce} from 'underscore';
+import underscore, {each, range, zip, reduce, sum} from 'underscore';
 export default {
    
     //Shannon Entropy
@@ -55,7 +55,7 @@ let logfunc = function(item1, item2){
 }
 
 let norm = function(X){
-    let sum = X.reduce((x,y) => x + y, 0);
+    let sum = reduce(X, (x,y) => x + y, 0);
     return X.map(x => x/sum);
 }
 
