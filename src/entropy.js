@@ -1,5 +1,5 @@
 
-import underscore, {each, range, zip, reduce} from 'underscore'
+import underscore, {each, range, zip, reduce} from 'underscore';
 export default {
    
     //Shannon Entropy
@@ -58,6 +58,9 @@ let norm = function(X){
     let sum = X.reduce((x,y) => x + y, 0);
     return X.map(x => x/sum);
 }
+
+
+//Calculation of joint probability
 let joint_probability = function(X, Y){
     let len = X.length;
     let result = 0;
